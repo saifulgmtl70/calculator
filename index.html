@@ -1,60 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <!-- Tailwind css file here -->
-    <link rel="stylesheet" href="src/cdn.jsdelivr.net_npm_daisyui@3.3.1_dist_full.css">
-    <script src="src/cdn.tailwindcss.com_3.3.3"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
 
-    <style>
-        .btn{
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-        }
-    </style>
+    .neu-container {
+      background: #d6d5d5;
+      border-radius: 16px;
+      box-shadow: 8px 8px 16px #d0d0d0, -8px -8px 16px #ffffff;
+    }
+    .neu-button {
+      background: #54cdeba5;
+      color: #777;
+      box-shadow: 9px 9px 10px #d0d0d0, -5px -5px 10px #ffffff;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+    }
+    .neu-operator {
+      background: #f6679290;
+      color: #777;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 50%;
+      box-shadow: 4px 4px 8px #d0d0d0, -4px -4px 8px #ffffff;
+    }
+  </style>
 </head>
-
-<body class="bg-cyan-100 h-screen flex justify-center items-center">
-    <!-- Calculator  -->
-    <section class="bg-white p-8 w-3/12 rounded-md shadow-lg">
-        <input type="text" id="displayField" class="border text-right border-slate-400 rounded-sm px-5 py-6 w-full focus:outline-0">
-        <div class="grid grid-cols-4 gap-1 mt-6 semibold">
-            <button onclick="clearFunc('C')" class="btn bg-slate-200 hover:bg-slate-300 mb-3">C</button>
-            <button onclick="deleteFunc('DELL')" class="btn bg-slate-200 hover:bg-slate-300">&#10060</button>
-            <button onclick="calcFunc('%')" class="btn bg-slate-200 hover:bg-slate-300">%</button>
-            <button onclick="calcFunc('/')" class="btn bg-slate-200 hover:bg-slate-300">/</button>
-
-            <button onclick="calcFunc('7')" class="btn bg-slate-200 hover:bg-slate-300 mb-3">7</button>
-            <button onclick="calcFunc('8')" class="btn bg-slate-200 hover:bg-slate-300">8</button>
-            <button onclick="calcFunc('9')" class="btn bg-slate-200 hover:bg-slate-300">9</button>
-            <button onclick="calcFunc('*')" class="btn bg-slate-200 hover:bg-slate-300">*</button>
-
-
-            <button onclick="calcFunc('4')" class="btn bg-slate-200 hover:bg-slate-300 mb-3">4</button>
-            <button onclick="calcFunc('5')" class="btn bg-slate-200 hover:bg-slate-300">5</button>
-            <button onclick="calcFunc('6')" class="btn bg-slate-200 hover:bg-slate-300">6</button>
-            <button onclick="calcFunc('-')" class="btn bg-slate-200 hover:bg-slate-300">-</button>
-
-            <button onclick="calcFunc('1')" class="btn bg-slate-200 hover:bg-slate-300 mb-3">1</button>
-            <button onclick="calcFunc('2')" class="btn bg-slate-200 hover:bg-slate-300">2</button>
-            <button onclick="calcFunc('3')" class="btn bg-slate-200 hover:bg-slate-300">3</button>
-            <button onclick="calcFunc('+')" class="btn bg-slate-200 hover:bg-slate-300">+</button>
-
-            <button onclick="calcFunc('0')" class="btn bg-slate-200 hover:bg-slate-300 mb-3">0</button>
-            <button onclick="calcFunc('00')" class="btn bg-slate-200 hover:bg-slate-300">00</button>
-            <button onclick="calcFunc('.')" class="btn bg-slate-200 hover:bg-slate-300">.</button>
-            <button onclick="calculate('=')" class="btn bg-slate-200 hover:bg-slate-300">=</button>
-
-        </div>
-    </section>
-
+<body class="bg-gray-100 h-screen flex justify-center items-center ">
+  <div class="max-w-md px-8 py-8 lg:px-12 lg:py-12 bg-slate-400 shadow-2xl rounded-xl font-extrabold">
     
+    <input type="text" id="displayField" class="w-full h-16 bg-transparent shadow-none border-2 px-4  focus:border-0 focus:outline-none text-right mb-4 cursor-pointer text-indigo-950 font-bold text-2xl">
+    <div class="grid grid-cols-4 gap-4 mt-5">
 
+        <button class="neu-button  neu-operator font-extrabold text-lg " onclick="clearValue('AC')">AC</button>
+        <button class="neu-button  neu-operator font-extrabold text-lg " onclick="deleteBtn('DELL')">DEL</button>
+        <button class="neu-button  neu-operator font-extrabold text-xl " onclick="calculator('.')">.</button>
+        <button class="neu-button  neu-operator font-extrabold text-xl " onclick="calculator('/')">/</button>
+        
 
-    <script src="js/script.js"></script>
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator(7)">7</button>
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator(8)">8</button>
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator(9)">9</button>
+        <button class="neu-button  neu-operator font-extrabold text-xl " onclick="calculator('*')">*</button>
+
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator(4)">4</button>
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator(5)">5</button>
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator(6)">6</button>
+        <button class="neu-button  neu-operator font-extrabold text-xl " onclick="calculator('-')">-</button>
+
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator(1)">1</button>
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator(2)">2</button>
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator(3)">3</button>
+        <button class="neu-button  neu-operator font-extrabold text-xl " onclick="calculator('+')">+</button>
+
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator('00')">00</button>
+        <button class="neu-button  text-black font-extrabold text-xl " onclick="calculator('0')">0</button>
+        <button class="neu-button  neu-operator font-extrabold text-xl " onclick="calculator('%')">%</button>
+        <button class="neu-button  neu-operator font-extrabold text-xl " onclick="calCulate('=')">=</button>
+  
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
